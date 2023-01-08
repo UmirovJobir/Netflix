@@ -10,3 +10,4 @@ GRANT ALL PRIVILEGES ON DATABASE netflix TO posrgres;
 gunicorn --bind 0.0.0.0:8000 netflix.wsgi
 
 sudo ln -s /etc/nginx/sites-available/netflix_nginx /etc/nginx/sites-enabled
+
