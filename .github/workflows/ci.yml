@@ -6,7 +6,7 @@ jobs:
   run-tests:
     services:
       postgres:
-        images: postgres:11
+        image: postgres:11
         env:
           POSTGRES_DB: netflix
           POSTGRES_USER: postgres
