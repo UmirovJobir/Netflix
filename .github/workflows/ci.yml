@@ -1,8 +1,8 @@
 name: Netflix
 
-on: 
-  push:
-    branches: [master]
+on: [push]
+  # push:
+  #   branches: [main]
 
 jobs:
   run-tests:
@@ -11,7 +11,7 @@ jobs:
         image: postgres:11
         env:
           POSTGRES_DB: netflix
-          POSTGRES_USER: postgres
+          POSTGRES_USER: developer
           POSTGRES_PASSWORD: 123
         ports:
           - 5432:5432
