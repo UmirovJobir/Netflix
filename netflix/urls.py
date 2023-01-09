@@ -23,7 +23,7 @@ from django.conf import settings
 
 schema_view = get_schema_view(
     openapi.Info(
-        title='Netflix Application Rest API',
+        title='Netflix API',
         default_version='v1',
         description='Swagger docs for Rest API',
         contact=openapi.Contact('jobirumirovmoliya@gmail.com'),
