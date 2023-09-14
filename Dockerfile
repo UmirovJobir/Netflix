@@ -1,4 +1,4 @@
-FROM python:3.7
+FROM python:3.10-slim
 
 WORKDIR /code
 
@@ -8,4 +8,5 @@ RUN pip install -r requirements.txt
 
 EXPOSE 8000
 
-ENTRYPOINT ["./entrypoint.sh"]
+COPY entrypoint.sh .
+ENTRYPOINT ["sh", "entrypoint.sh"]

@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'netflix.wsgi.application'
 DATABASES = {
    'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'netflix', 
-        'USER': 'developer', 
-        'PASSWORD': 123,
-        'HOST': '127.0.0.1',    
-        'PORT': 5432
+        'NAME': os.environ.get('POSTGRES_DB'), 
+        'USER': os.environ.get('POSTGRES_USER'), 
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('POSTGRES_HOST'),    
+        'PORT': os.environ.get('POSTGRES_PORT')
    }
 }
 
