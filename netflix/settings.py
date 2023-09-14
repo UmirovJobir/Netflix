@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -94,9 +97,9 @@ DATABASES = {
 # DATABASES = {
 #    'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': os.environ.get('POSTGRES_DB'), 
-#         'USER': os.environ.get('POSTGRES_USER'), 
-#         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+#         'NAME': 'netflix', 
+#         'USER': 'postgres', 
+#         'PASSWORD': '123',
 #         'HOST': '127.0.0.1',    
 #         'PORT': 5432
 #    }
