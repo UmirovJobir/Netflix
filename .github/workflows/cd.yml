@@ -1,43 +1,43 @@
-# name: Netflix
+name: Netflix
 
-# on: 
-#   push:
-#     branches: [master]
+on: 
+  push:
+    branches: [master]
 
-# jobs:
-#   test:
-#     services:
-#       postgres:
-#         image: postgres:15-alpine
-#         env:
-#           POSTGRES_DB: netflix
-#           POSTGRES_USER: developer
-#           POSTGRES_PASSWORD: 123
-#         ports:
-#           - 5432:5432
-#     runs-on: ubuntu-latest
-#     env:
-#       DJANGO_SETTINGS_MODULE: netflix.settings
-#     steps:
-#       - uses: actions/checkout@v2
-#       - uses: actions/setup-python@v2
-#         with:
-#           python-version: 3.7
-#       - name: Install Requirements
-#         run: pip install -r requirements.txt
-#       - name: Run Tests
-#         run: python3 manage.py test
-#   deploy: 
-#     runs-on: ubuntu-latest
-#     needs: test
-#     steps:
-#     - name: executing remote ssh commands using password
-#       uses: appleboy/ssh-action@master
-#       with:
-#         host: 139.162.159.187
-#         username: root
-#         key: ${{ secrets.KEY }}
-#         script: | 
-#           cd Netflix
-#           git pull
-#           systemctl restart gunicorn.service
+jobs:
+  test:
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_DB: netflix
+          POSTGRES_USER: developer
+          POSTGRES_PASSWORD: 123
+        ports:
+          - 5432:5432
+    runs-on: ubuntu-latest
+    env:
+      DJANGO_SETTINGS_MODULE: netflix.settings
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Install Requirements
+        run: pip install -r requirements.txt
+      - name: Run Tests
+        run: python3 manage.py test
+  deploy: 
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: 139.162.159.187
+        username: root
+        key: ${{ secrets.KEY }}
+        script: | 
+          cd Netflix
+          git pull
+          systemctl restart gunicorn.service
