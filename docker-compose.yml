@@ -17,7 +17,7 @@ services:
     image: postgres:15-alpine
     environment:
       - POSTGRES_DB=netflix
-      - POSTGRES_USER=developer
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=123
     ports:
       - 5432:5432
