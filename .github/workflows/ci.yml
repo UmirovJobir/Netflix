@@ -25,5 +25,5 @@ jobs:
         run: pip install --upgrade pip
       - name: Install Requirements
         run: pip install -r requirements.txt
-      # - name: Run Tests
-      #   run: python3 manage.py test
+      - name: Run Tests
+        run: python3 manage.py test
